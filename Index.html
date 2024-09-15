@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Static Forum - Newest Entries</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 50%;
+            margin: 0 auto;
+            text-align: center;
+        }
+        h2 {
+            margin-top: 20px;
+        }
+        .entry {
+            background-color: #f7f7f7;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Newest Forum Entries</h2>
+
+        <!-- Button to simulate loading newest data -->
+        <button onclick="showNewest()">Load Newest Entries</button>
+
+        <!-- Area where new entries will be displayed -->
+        <div id="newest-entries">
+            <p>Click the button to see the latest posts.</p>
+        </div>
+    </div>
+
+    <script>
+        // Static data for new entries
+        const newestEntries = [
+            { name: "Alice", message: "Just joined the forum!" },
+            { name: "Bob", message: "Excited to be here!" },
+            { name: "Charlie", message: "Can anyone help with JavaScript?" }
+        ];
+
+        // Function to display newest entries
+        function showNewest() {
+            const container = document.getElementById('newest-entries');
+            container.innerHTML = ''; // Clear old entries
+
+            newestEntries.forEach(entry => {
+                const entryDiv = document.createElement('div');
+                entryDiv.classList.add('entry');
+
+                entryDiv.innerHTML = `
+                    <h3>${entry.name}</h3>
+                    <p>${entry.message}</p>
+                `;
+
+                container.appendChild(entryDiv);
+            });
+        }
+    </script>
+
+</body>
+</html>
